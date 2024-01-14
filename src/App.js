@@ -1,30 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import Footer from "./components/Footer";
+import About from "./components/About";
 
 const App = () => {
     const [showAddTask, setShowAddTask] = useState(false)
-    const [tasks, setTasks] = useState([
-        {
-            id: 1,
-            text: 'learn react coding ',
-            day: 'Feb 5th at 2:30pm',
-            reminder: true,
-        },
-        {
-            id: 2,
-            text: 'learn react coding ',
-            day: 'Feb 5th at 2:30pm',
-            reminder: true,
-        },
-        {
-            id: 3,
-            text: 'learn react coding ',
-            day: 'Feb 5th at 2:30pm',
-            reminder: false,
-        }
-    ])
+    const [tasks, setTasks] = useState([])
 
     //addtask
     const addTask = (task) => {
@@ -52,16 +36,32 @@ const App = () => {
     }
 
     return (
-        <div className="containner">
-            <Header
-                title="Hello Task Tracker"
-                onAdd={() => setShowAddTask(!showAddTask)}
-                showAdd={showAddTask}
+        <Router>
+            <div className="containner">
+                <Header
+                    title="Hello Task Tracker"
+                    onAdd={() => setShowAddTask(!showAddTask)}
+                    showAdd={showAddTask}
 
-            />
-            {showAddTask && <AddTask onAdd={addTask} />}
-            {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onReminder={Reminder} /> : 'No task here!'}
-        </div>
+                />
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <>
+                                {showAddTask && <AddTask onAdd={addTask} />}
+                                {tasks.length > 0 ? (<Tasks tasks={tasks}
+                                    onDelete={deleteTask} onReminder={Reminder}
+                                />) : ('No task here!')}
+                            </>
+                        }
+                    />
+                    <Route path='/about' element={<About />} />
+                </Routes>
+                <Footer />
+            </div>
+
+        </Router>
     );
 }
 
