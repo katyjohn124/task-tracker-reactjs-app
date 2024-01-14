@@ -1,9 +1,13 @@
 import Button from "./Button"
-const Header = (props) => {
+const Header = ({ title, showAdd, onAdd }) => {
     return (
         <header className="header">
-            <h1 style={{ color: "black" }}>{props.title}</h1>
-            <Button color="blue" text="Add" />
+            <h1 style={{ color: "black" }}>{title}</h1>
+            <Button
+                color={showAdd ? 'red' : 'green'}
+                text={showAdd ? 'close' : 'add'}
+                onClick={onAdd}
+            />
         </header>
     )
 }
