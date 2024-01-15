@@ -6,13 +6,13 @@
     * 适合拿来练手入门
     * 涉及了传递数据、JSX、hooks、json、异步编程等等知识。
 
-![任务跟踪器](src\images\Snipaste_2024-01-15_21-34-21.png)
+![任务跟踪器](src/images/Snipaste_2024-01-15_21-34-21.png)
 
-![添加任务](src\images\Snipaste_2024-01-15_21-35-22.png)
+![添加任务](src/images/Snipaste_2024-01-15_21-35-22.png)
 
-![删除任务](src\images\Snipaste_2024-01-15_21-35-58.png)
+![删除任务](src/images/Snipaste_2024-01-15_21-35-58.png)
 
-![绿色为标记任务](src\images\Snipaste_2024-01-15_21-36-53.png)
+![绿色为标记任务](src/images/Snipaste_2024-01-15_21-36-53.png)
 
 - useState：useState是React Hooks的一部分，它允许你在函数组件中添加状态。你可以使用useState来创建一个包含状态值和更新该状态值的函数的数组。例如：
 ```
